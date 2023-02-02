@@ -83,28 +83,30 @@ Role.destroy_all
 # TODO!
 
 new_studio = Studio.new
-new_studio["studio_name"] = "Warner Bros."
+new_studio["name"] = "Warner Bros."
 new_studio.save
 
-warner_bros = Studio.find_by({"studio_name" => "Warner Bros."})
-new_movie = Movies.new
+warner_bros = Studio.find_by({"name" => "Warner Bros."})
+
+new_movie = Movie.new
 new_movie["title"] = "Batman Begins"
-new_movie["release_year"] = "2005"
-new_movie["mpaa_rating"] = "PG-13"
-new_movie["studio"] = warner_bros["studio_name"]
+new_movie["year_released"] = "2005"
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warner_bros["name"]
 new_movie.save
 
+new_movie = Movie.new
 new_movie["title"] = "The Dark Knight"
 new_movie["year_released"] = "2008"
 new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = warner_bros["studio_name"]
+new_movie["studio_id"] = warner_bros["name"]
 new_movie.save
 
 new_movie = Movie.new
 new_movie["title"] = "The Dark Knight Rises"
 new_movie["year_released"] = "2012"
 new_movie["rated"] = "PG-13"
-new_movie["studio_id"] = warner_bros["studio_name"]
+new_movie["studio_id"] = warner_bros["name"]
 new_movie.save
 
 actor = Actor.new
@@ -279,10 +281,27 @@ role["movie_id"] = dark_knight_rises["id"]
 role["actor_id"] = selina_kyl["id"]
 role.save
 
+#puts "studios: #{Studio.all.count}"
+#puts "movies: #{Movie.all.count}"
+#puts "Actors: #{Actor.all.count}"
+#puts "Roles: #{Role.all.count}"
+
 # Prints a header for the movies output
 puts "Movies"
 puts "======"
 puts ""
+
+# movies = Movie.all
+# for movie in movies  
+#     title = movie["title"]
+#     year_released = movie["year_released"]
+#     rated = movie["rated"]
+
+# studios = Studio.find_by({"id" => movie["studio_id"]})
+#     studio_name = studios["name"]
+
+# puts "#{title}        #{year_released}          #{rated}          #{studio_name}"
+# end
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
@@ -292,6 +311,18 @@ puts ""
 puts "Top Cast"
 puts "========"
 puts ""
+
+# roles = Role.all
+# for role in roles
+#     role_name = role["character_name"]
+#     actor = Actor.find_by({"id" => role["actor_id"]})
+#     actor_name = actor["name"]
+
+#     movie = Movie.find_by({"id" => role["movie_id"]})
+#     movie_title = movie["title"]
+
+# puts "#{movie_title}        #{actor_name}       #{role_name}"
+# end
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
