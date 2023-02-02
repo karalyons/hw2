@@ -69,6 +69,14 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
+Movies.destroy_all
+
+#new_movie = Movies.new
+#new_company["title"] = "Batman Begins"
+#new_company["release_year"] = "2005"
+#new_company["mpaa_rating"] = "PG-13"
+#new_company["studio"] = []
+#new_company.save
 # TODO!
 
 # Generate models and tables, according to the domain model.
