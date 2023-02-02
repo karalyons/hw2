@@ -144,6 +144,19 @@ actor["name"] = "Anne Hathaway"
 actor.save
 
 
+bruce_wayne = Actor.find_by({"name" => "Christian Bale"})
+batman_begins = Movie.find_by({"name" => "Batman Begins"})
+
+role = Role.new
+role["character_name"] = "Bruce Wayne"
+role["movie_id"] = movie["id"]
+role["actor_id"] = bruce_wayne["id"]
+role.save
+
+#t.string "character_name"
+#t.integer "movie_id"
+#t.integer "actor_id"
+
 # Generate models and tables, according to the domain model.
 # TODO!
 
