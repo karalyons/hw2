@@ -69,15 +69,80 @@
 
 # Delete existing data, so you'll start fresh each time this script is run.
 # Use `Model.destroy_all` code.
-Movies.destroy_all
+Movie.destroy_all
+Studio.destroy_all
+Actor.destroy_all
+Role.destroy_all
 
-#new_movie = Movies.new
-#new_company["title"] = "Batman Begins"
-#new_company["release_year"] = "2005"
-#new_company["mpaa_rating"] = "PG-13"
-#new_company["studio"] = []
-#new_company.save
-# TODO!
+new_studio = Studio.new
+new_studio["studio_name"] = "Warner Bros."
+new_studio.save
+
+warner_bros = Studio.find_by({"studio_name" => "Warner Bros."})
+new_movie = Movies.new
+new_movie["title"] = "Batman Begins"
+new_movie["release_year"] = "2005"
+new_movie["mpaa_rating"] = "PG-13"
+new_movie["studio"] = warner_bros["studio_name"]
+new_movie.save
+
+new_movie["title"] = "The Dark Knight"
+new_movie["year_released"] = "2008"
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warner_bros["studio_name"]
+new_movie.save
+
+new_movie = Movie.new
+new_movie["title"] = "The Dark Knight Rises"
+new_movie["year_released"] = "2012"
+new_movie["rated"] = "PG-13"
+new_movie["studio_id"] = warner_bros["studio_name"]
+new_movie.save
+
+actor = Actor.new
+actor["name"] = "Christian Bale"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Michael Caine"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Liam Neeson"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Katie Holmes"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Gary Oldman"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Heath Ledger"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Aaron Eckhart"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Maggie Gyllenhaal"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Tom Hardy"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Joseph Gordon-Levitt"
+actor.save
+
+actor = Actor.new
+actor["name"] = "Anne Hathaway"
+actor.save
+
 
 # Generate models and tables, according to the domain model.
 # TODO!
